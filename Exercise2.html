@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Palindrome</title>
+	<style>
+lable{
+	display: inline-block;
+	margin:10px 30px;
+	color:#02174c;
+}
+		input, button, span, lable{
+	padding:10px;
+	font-size:16px;
+	font-family: sans-serif;
+	border-radius:4px;
+	
+}
+
+
+	</style>
+</head>
+<body>
+
+<span>Enter String: </span>
+<input type="text" name="str" id="str">
+<button onclick="palindrome()" value="Check">Check</button>
+<br><lable name="msg" id="msg" style="padding:10px;"></lable>
+</body>
+
+</html>
+
+<script>
+function palindrome() {
+	var isPalindrome = true;
+	str = document.getElementById('str').value;
+	while(true){
+		if(str == "")		
+			alert("Please enter any string!");
+		
+		else{
+			var len = str.length;
+	    		var mid = Math.floor(len/2);
+		    	for ( var i = 0; i < mid; i++ ) {
+				if (str[i] !== str[len - 1 - i]) {
+			    		isPalindrome = false;
+					break;
+				}
+		    	}
+
+
+			if(!isPalindrome)
+				document.getElementById("msg").innerText = "String '"+str+"' not a palindrome.";
+			else
+				document.getElementById("msg").innerText = "String '"+str+"' a palindrome.";
+		}
+		break;	
+	} 	
+			
+}
+</script>

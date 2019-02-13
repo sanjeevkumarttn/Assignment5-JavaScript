@@ -1,0 +1,29 @@
+<html>
+   <head><title>Object Copy</title></head>
+   <body>
+      <script>
+
+		var person1 = {
+		  firstName : "Sanjeev",
+		  lastName  : "Kumar",
+		  age     : 20
+		};
+
+		var person2 ={};
+
+		function copy(target, source)
+		{
+			for(key in source){
+				target[key] = source[key];
+			}
+		}
+
+		copy(person2, person1);
+
+		console.log("person1 details.....\n\nFirst Name: "+person1.firstName+" | Last name: "+person1.lastName+" | Age: "+person1.age);
+		console.log("\nAfter coping details of person1 to person2.....\n---------------------------------------------\nperson2 details.....\n\n");
+		console.log("First Name: "+person2.firstName+" | Last name: "+person2.lastName+" | Age: "+person2.age);
+
+      </script>
+   </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Area of circle</title>
+	<style>
+lable{
+	display: inline-block;
+	margin:10px 30px;
+	color:#02174c;
+}
+		input, button, span, lable{
+	padding:10px;
+	font-size:16px;
+	font-family: sans-serif;
+	border-radius:4px;
+	
+}
+
+
+	</style>
+</head>
+<body>
+
+<span>Enter radius of the circle: </span>
+<input type="text" name="radius" id="radius">
+<button onclick="CalculateArea()" value="Check">Check</button>
+<br><lable name="area" id="area" style="padding:10px;"></lable>
+</body>
+
+</html>
+
+<script>
+function CalculateArea() {
+	
+	radius = document.getElementById('radius').value;
+	while(true){
+		if(radius == "")		
+			alert("Please enter a radius!");
+		else if(isNaN(radius))
+			alert("Radius should be a number..");
+		else{
+			a = radius * radius * 3.14;
+			area = a.toFixed(2);
+			document.getElementById("area").innerText = "Area of the circle is: "+area;
+		}
+		break;	
+	} 
+			
+}
+</script>

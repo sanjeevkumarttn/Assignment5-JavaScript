@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SI Calculator</title>
+</head>
+<body onload="calSI();">
+
+<script>
+function calSI() {
+
+	while(true){
+	  	var amount = prompt("Please enter your amount: ");
+		if(amount!= ""){
+			if(!isNaN(amount))
+					break;	
+			else
+				alert("Enter a valid amount!");	
+		}
+		else
+			alert("Field cann't be empty");
+	}
+
+	while(true){
+	  	var rate = prompt("Please enter interest rate: ");
+		if(rate!= ""){
+			if(!isNaN(rate))
+					break;	
+			else
+				alert("Enter a valid rate!");	
+		}
+		else
+			alert("Field cann't be empty");
+	}
+
+	while(true){
+	  	var year = prompt("Please enter number of years: ");
+		if(year!= ""){
+			if(!isNaN(year))
+					break;	
+			else
+				alert("Enter a valid value!");	
+		}
+		else
+			alert("Field cann't be empty");
+	}
+	
+	var SI = (amount*rate*year)/100;
+	alert("Simple interest is: "+SI);
+}
+</script>
+
+</body>
+</html>

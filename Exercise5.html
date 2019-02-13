@@ -1,0 +1,69 @@
+<html>
+   <head><title>Employee Record</title></head>
+   <body>
+      <script>
+		var Emp = [
+				{Name:"Rohan", Age:25, Salary:6000, DOB:"21/06/1993"},
+				{Name:"Arjun", Age:22, Salary:7000, DOB:"29/08/1996"},
+				{Name:"Veer", Age:22, Salary:500, DOB:"21/02/1996"},
+				{Name:"Aditya", Age:25, Salary:800, DOB:"11/08/1993"},
+				{Name:"Akash", Age:18, Salary:900, DOB:"27/03/1993"},
+		];
+		
+		console.log("Employee records are.....\n--------------------------------------------\n");
+		for (index = 0; index < Emp.length; index++) { 
+    			console.log("Name: "+Emp[index].Name+" | Age: "+Emp[index].Age+" | Salary: 				"+Emp[index].Salary+" | DOB: "+Emp[index].DOB); 
+		}
+
+// filter all employees with salary greater than 5000
+
+		console.log("\nEmployees with salary greater than 5000.....\n-----------------------------------------------------------\n");
+		var highest_paid_emp = Emp.filter(function (Emp) {
+			
+    			return Emp.Salary > 5000;
+		});
+		
+		for (index = 0; index < highest_paid_emp.length; index++) { 
+    			console.log("Name: "+highest_paid_emp[index].Name+" | Age: "+highest_paid_emp[index].Age+" | Salary: 				"+highest_paid_emp[index].Salary+" | DOB: "+highest_paid_emp[index].DOB); 
+		}
+		
+// group employee on the basis of their age
+
+		var result = Emp.reduce(function (r, a) {
+        	r[a.Age] = r[a.Age] || [];
+        	r[a.Age].push(a);
+        	return r;
+    		}, Object.create(null));
+
+		console.log("\nEmployee group on the basis of their age is.....\n---------------------------------------------------------\n");
+		for ( var j in result ) { 
+			age = j;
+			console.log("\nAge "+age+":");
+			for(i = 0; i < result[age].length; i++){
+    				console.log("Name: "+result[age][i].Name+" | Age: "+result[age][i].Age+" | Salary: 					"+result[age][i].Salary+" | DOB: "+result[age][i].DOB); 
+			}
+		}
+
+// fetch employees with salary less than 1000 and age greater than 20. Then give them an increment 5 times their salary.
+
+		console.log("\nEmployees with salary less than 1000 and age greater than 20 are.....\n-----------------------------------------------------------\n");
+		var emp_increment = Emp.filter(function (Emp) {
+    			return Emp.Salary < 1000 && Emp.Age > 20;
+		});
+
+		for (index = 0; index < emp_increment.length; index++) { 
+    			console.log("Name: "+emp_increment[index].Name+" | Age: "+emp_increment[index].Age+" | Salary: 				"+emp_increment[index].Salary+" | DOB: "+emp_increment[index].DOB); 
+		}
+
+		console.log("\nEmployees after increment of salary 5 times.....\n-----------------------------------------------------------\n");
+		for(i = 0; i < emp_increment.length; i++)			
+			emp_increment[i].Salary *= 5;
+				
+
+		for (index = 0; index < emp_increment.length; index++) { 
+    			console.log("Name: "+emp_increment[index].Name+" | Age: "+emp_increment[index].Age+" | Salary: 				"+emp_increment[index].Salary+" | DOB: "+emp_increment[index].DOB); 
+		}
+		
+      </script>
+   </body>
+</html>
